@@ -17,8 +17,6 @@ class LoginView(Resource):
       user=Users.query.filter_by(username=data1['username']).first()
       if not user:
          return "Username is Invalid",401
-      
-    #   exist_password=Users.query.filter_by(verify_password=data['username']).first()
 
       if not user.verify_password(data1['password']):
          return "Password is Invalid",401
